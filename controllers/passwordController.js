@@ -37,7 +37,7 @@ module.exports.ForgetPassword = async (req, res) => {
                 pass: process.env.MY_PASSWORD, // generated ethereal password
             },
         });
-        const resetUrl = `http://localhost:3000/screens/${resetToken.token}`;
+        const resetUrl = `https://chatisy-3ye2ahbzp-abhijain3002-gmailcom.vercel.app/screens/${resetToken.token}`;
         await transporter.sendMail({
             from: 'abhijain3002@gmail.com', // sender address
             to: user.email,
