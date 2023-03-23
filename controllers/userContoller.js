@@ -76,8 +76,6 @@ module.exports.LoginUser = async (req, res) => {
             return res.status(401).json({ error: 'Incorrect email or password' });
         }
 
-        // Update the remember property of the user
-        user.remember = req.body.remember;
         await user.save();
 
         // Return success response
