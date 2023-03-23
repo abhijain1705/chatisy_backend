@@ -1,4 +1,4 @@
-# HomeLLC Backend Assignment
+# Chatisy Backend
 
 This project is a backend implementation for user authentication and password reset functionality. The API is built with Node.js, Express, MongoDB, and Nodemailer.
 
@@ -27,39 +27,36 @@ To use this API, make HTTP requests to the appropriate endpoints using a tool li
 
 ## API Endpoints
 
-- `POST /homellc/users/signup`: Create a new user account. Send a JSON object with the following fields in the request body:
+- `POST /users/signup`: Create a new user account. Send a JSON object with the following fields in the request body:
 
 ```json
 {
-  "firstName": "james",
-  "lastName": "bond",
+  "fullName": "james",
   "email": "jamesbond007@gmail.com",
-  "phoneNumber": "+919876543210",
-  "dateOfJoining": "2023-03-08T17:58:21.964Z",
+  "password": "yourpassword",
+  "profile": "image",
+  "about": "bio"
+}```
+
+
+- `POST /users/login`: Log in to an existing user account. Send a JSON object with the following fields in the request body:
+```json
+{
+  "email": "jamesbond007@gmail.com",
   "password": "yourpassword"
 }```
 
 
-- `POST /homellc/users/login`: Log in to an existing user account. Send a JSON object with the following fields in the request body:
+- `POST /users/update`: Update unsers profile:
 ```json
 {
   "email": "jamesbond007@gmail.com",
-  "password": "yourpassword"
+  "profile": "image",
+  "about": "bio"
 }```
 
 
-- `POST /homellc/passwords/forgot-password`: Send an email to the user with a link to reset their password. Send a JSON object with the following fields in the request body:
-```json
-{
-  "firstName": "james",
-  "lastName": "bond",
-  "email": "jamesbond007@gmail.com",
-  "phoneNumber": "+919876543210",
-  "createdAt": "2023-03-08T17:58:21.964Z"
-}```
-
-
-- `POST /homellc/passwords/reset-password/:token`: Reset a user's password using a token sent to their email address. Send a JSON object with the following fields in the request body:
+- `GET /users/:name`: Get User's profile by name:
 ```json
 {
   "email": "jamesbond007@gmail.com",
@@ -76,6 +73,7 @@ This project uses the following technologies:
 - Mongoose
 - Nodemailer
 - JSON Web Tokens
+- firebase
 
 ## Contributing
 
